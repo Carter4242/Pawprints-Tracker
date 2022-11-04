@@ -101,7 +101,7 @@ def Graphs(petitions: list) -> None:
     plt.margins(0.005, tight=True)
     plt.tight_layout(pad=0.5)
 
-    plt.savefig('graphsFull/BarGraph_Detailed.svg')
+    plt.savefig('docs/public/graphsFull/BarGraph_Detailed.svg')
     plt.close()
 
 
@@ -124,7 +124,7 @@ def Graphs(petitions: list) -> None:
     plt.margins(0.005, tight=True)
     plt.tight_layout(pad=0.5)
 
-    plt.savefig('graphsFull/BarGraph_Regular.svg')
+    plt.savefig('docs/public/graphsFull/BarGraph_Regular.svg')
     plt.close()
 
 
@@ -150,7 +150,7 @@ def Graphs(petitions: list) -> None:
         plt.xticks(rotation = 90)
         plt.margins(0.005, tight=True)
         plt.tight_layout(pad=0.5)
-        plt.savefig('graphsFull/BarGraph_' + tagsList[i] + '.svg')
+        plt.savefig('docs/public/graphsFull/BarGraph_' + tagsList[i] + '.svg')
         plt.close()
 
     print("\nGraphing Total Petitions\n")
@@ -169,7 +169,7 @@ def Graphs(petitions: list) -> None:
     plt.xticks(rotation = 90)
     plt.margins(0.005, tight=True)
     plt.tight_layout(pad=0.5)
-    plt.savefig('graphsFull/LineGraph_totalPetitions.svg')
+    plt.savefig('docs/public/graphsFull/LineGraph_totalPetitions.svg')
     plt.close()
     
 
@@ -203,7 +203,7 @@ def buildAllTimeGraph() -> None:
     plt.xticks(rotation = 90)
     plt.margins(0.005, tight=True)
     plt.tight_layout(pad=0.5)
-    plt.savefig('graphsFull/LineGraph_totalSigs.svg')
+    plt.savefig('docs/public/graphsFull/LineGraph_totalSigs.svg')
     plt.close()
 
 
@@ -235,5 +235,5 @@ def buildPetitionGraph(filename: str) -> None:
     plt.xticks(rotation = 90)
     plt.margins(0.005, tight=True)
     plt.tight_layout(pad=0.5)
-    plt.savefig('graphsSingle/' + str(dataAndID[1][:-4]) + '.svg')
+    plt.savefig('docs/public/graphsSingle/' + str(dataAndID[1][:-4]) + '.svg')
     plt.close()
