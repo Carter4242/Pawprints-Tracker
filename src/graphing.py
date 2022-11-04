@@ -44,6 +44,13 @@ def Graphs(petitions: list) -> None:
                 dateStr = str(m) + r"/" + str(petitions[-1].timestamp.year)
                 xValues.append(dateStr)
     
+    xValuesYears = []
+
+    for i in range(len(xValues)):
+        if xValues[i][0:2] != "1/":
+            xValuesYears.append("")
+        else:
+            xValuesYears.append(xValues[i][2:]) 
 
     yearMonthsList = []
     for p in petitions:
@@ -54,6 +61,10 @@ def Graphs(petitions: list) -> None:
     lIgnored, lResponded, lSigsOverCharged, lSigsNotOverCharged = 0, 0, 0, 0
     lCountUp = -1
     lCountDown = 0
+    totalSignatures = 0
+    totalSignaturesY = []
+
+
     for x in xValues:
         countPetitions = yearMonthsList.count(x)
         lCountDown = countPetitions
@@ -69,11 +80,13 @@ def Graphs(petitions: list) -> None:
                     lIgnored += 1
             else:
                 lResponded += 1
+            totalSignatures += petitions[lCountUp-i].signatures
 
         yValuesIgnored.append(lIgnored)
         yValuesResponded.append(lResponded)
         yValuesSigsOverCharged.append(lSigsOverCharged)
         yValuesSigsOverNotCharged.append(lSigsNotOverCharged)
+        totalSignaturesY.append(totalSignatures)
         lIgnored, lResponded, lSigsOverCharged, lSigsNotOverCharged = 0, 0, 0, 0
     
     xRespondedList = []
@@ -90,16 +103,18 @@ def Graphs(petitions: list) -> None:
     plt.bar(xValues, yValuesSigsOverNotCharged, 0.8, color = ['#FF0000'], label='Not Responded ≥ 200 Signatures + Not Charged')
     plt.bar(xValues, yValuesSigsOverCharged, 0.8, bottom=yValuesSigsOverNotCharged, color = ['#FF8000'], label='Not Responded ≥ 200 Signatures + Charged')
     plt.bar(xValues, yValuesResponded, 0.8, bottom=xRespondedList, color = ['#00E600'], label='Responded')
-    plt.bar(xValues, yValuesIgnored, 0.8, bottom=xIgnoreList, color = ['#4E2C2C'], label='Not Responded < 200 Signatures')
+    plt.bar(xValues, yValuesIgnored, 0.8, bottom=xIgnoreList, color = ['#AE541D'], label='Not Responded < 200 Signatures')
 
     plt.ylabel("Petitions")
-    plt.legend()
+    plt.legend(fontsize=12)
 
-    plt.xticks(fontsize=8)
+    plt.xticks(range(len(xValuesYears)),xValuesYears)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     plt.xticks(rotation = 90)
-
+    
     plt.margins(0.005, tight=True)
-    plt.tight_layout(pad=0.5)
+    plt.tight_layout(pad=1.0)
 
     plt.savefig('docs/public/graphsFull/BarGraph_Detailed.svg')
     plt.close()
@@ -113,16 +128,18 @@ def Graphs(petitions: list) -> None:
     plt.figure(figsize=(12, 9), dpi=80)
     plt.bar(xValues, yValuesSigsOver, 0.8, color = ['#FF0000'], label='Not Responded ≥ 200 Signatures')
     plt.bar(xValues, yValuesResponded, 0.8, bottom=yValuesSigsOver, color = ['#00E600'], label='Responded')
-    plt.bar(xValues, yValuesIgnored, 0.8, bottom=xIgnoreList, color = ['#4E2C2C'], label='Not Responded < 200 Signatures')
+    plt.bar(xValues, yValuesIgnored, 0.8, bottom=xIgnoreList, color = ['#AE541D'], label='Not Responded < 200 Signatures')
 
     plt.ylabel("Petitions")
-    plt.legend()
+    plt.legend(fontsize=12)
 
-    plt.xticks(fontsize=8)
+    plt.xticks(range(len(xValuesYears)),xValuesYears)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     plt.xticks(rotation = 90)
 
     plt.margins(0.005, tight=True)
-    plt.tight_layout(pad=0.5)
+    plt.tight_layout(pad=1.0)
 
     plt.savefig('docs/public/graphsFull/BarGraph_Regular.svg')
     plt.close()
@@ -143,13 +160,15 @@ def Graphs(petitions: list) -> None:
         for x in xValues:
             yValues.append(tagsDict[x][i])
         plt.figure(figsize=(12, 9), dpi=80)
-        plt.bar(xValues, yValues, 0.8, color = ['#4E2C2C'])
+        plt.bar(xValues, yValues, 0.8, color = ['#AE541D'])
         plt.ylabel("Petitions")
+        plt.xticks(range(len(xValuesYears)),xValuesYears)
         plt.axis.TickLabelFormat = '%d'
-        plt.xticks(fontsize=8)
+        plt.xticks(fontsize=14)
+        plt.yticks(fontsize=14)
         plt.xticks(rotation = 90)
         plt.margins(0.005, tight=True)
-        plt.tight_layout(pad=0.5)
+        plt.tight_layout(pad=1.0)
         plt.savefig('docs/public/graphsFull/BarGraph_' + tagsList[i] + '.svg')
         plt.close()
 
@@ -164,12 +183,29 @@ def Graphs(petitions: list) -> None:
     plt.figure(figsize=(12, 9), dpi=80)
     plt.plot(xValues, totalPetitionsY, "-o")
     plt.ylabel("Petitions")
+    plt.xticks(range(len(xValuesYears)),xValuesYears)
     plt.axis.TickLabelFormat = '%d'
-    plt.xticks(fontsize=8)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     plt.xticks(rotation = 90)
     plt.margins(0.005, tight=True)
-    plt.tight_layout(pad=0.5)
+    plt.tight_layout(pad=1.0)
     plt.savefig('docs/public/graphsFull/LineGraph_totalPetitions.svg')
+    plt.close()
+
+    print("\nGraphing Total Signatures\n")
+
+    plt.figure(figsize=(12, 9), dpi=80)
+    plt.plot(xValues, totalSignaturesY, "-o")
+    plt.ylabel("Petitions")
+    plt.xticks(range(len(xValuesYears)),xValuesYears)
+    plt.axis.TickLabelFormat = '%d'
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    plt.xticks(rotation = 90)
+    plt.margins(0.005, tight=True)
+    plt.tight_layout(pad=1.0)
+    plt.savefig('docs/public/graphsFull/LineGraph_totalSignatures.svg')
     plt.close()
     
 
@@ -199,10 +235,11 @@ def buildAllTimeGraph() -> None:
     plt.plot(datesX, totalSigsY, "-o")
     plt.ylabel("Signatures")
     plt.axis.TickLabelFormat = '%d'
-    plt.xticks(fontsize=8)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     plt.xticks(rotation = 90)
     plt.margins(0.005, tight=True)
-    plt.tight_layout(pad=0.5)
+    plt.tight_layout(pad=1.0)
     plt.savefig('docs/public/graphsFull/LineGraph_totalSigs.svg')
     plt.close()
 
@@ -231,9 +268,10 @@ def buildPetitionGraph(filename: str) -> None:
     plt.plot(datesX, sigsY, "-o")
     plt.ylabel("Signatures")
     plt.axis.TickLabelFormat = '%d'
-    plt.xticks(fontsize=8)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     plt.xticks(rotation = 90)
     plt.margins(0.005, tight=True)
-    plt.tight_layout(pad=0.5)
+    plt.tight_layout(pad=1.0)
     plt.savefig('docs/public/graphsSingle/' + str(dataAndID[1][:-4]) + '.svg')
     plt.close()

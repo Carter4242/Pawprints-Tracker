@@ -7,11 +7,144 @@
     <title>Pawprints Tracker</title>
   </head>
   <body>
-    <p>
-      <h1>Pawprints Tracker</h1>
-      <!--<img src="https://raw.githubusercontent.com/Carter4242/Pawprints-Tracker/main/graphsFull/LineGraph_totalPetitions.svg"/>-->
-      <embed type="text/html" src="https://github.com/Carter4242/Pawprints-Tracker/blob/main/dailySignatures/signatureTotals.txt"> 
-    <div id="p1">
+    <div class = "centerBorder">
+      <h1 style=font-size:75px;>Pawprints Tracker</h1>
+    </div>
+    <div style="width: 50%; float: left">
+      <div class = "center">
+        <h2>Total Petitions All Time</h2>
+      </div>
+      <img src="public/graphsFull/lineGraph_totalPetitions.svg" alt="lineGraph_totalPetitions" style="width:88%">
+    </div>
+    <div style="width: 50%; float: right">
+      <div class = "center">
+        <h2>Total Signatures All Time</h2>
+      </div>
+      <img src="public/graphsFull/LineGraph_totalSignatures.svg" alt="LineGraph_totalSignatures" style="width:88%">
+    </div>
+    <div style="width: 50%; float: left">
+      <div class = "center">
+        <h2>Total Daily Signatures Since October 9th 2022</h2>
+      </div>
+      <img src="public/graphsFull/lineGraph_totalSigs.svg" alt="lineGraph_totalSigs" style="width:88%">
+    </div>
+    <div style="width: 50%; float: right">
+      <div class = "center">
+        <h2>Bar Graph - Detailed</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Detailed.svg" alt="BarGraph_Detailed" style="width:88%">
+    </div>
+    <div class = "centerBorderSmall">
+      <h1 style=font-size:40px;>Tag Graphs</h1>
+    </div>
+    <div style="width: 33%; float: left">
+      <div class = "center">
+        <h2>Academics</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Academics.svg" alt="Academics_Tag" style="width:88%">
+    </div>
+    <div style="width: 33%; float: right">
+      <div class = "center">
+        <h2>Campus Life</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Campus_Life.svg" alt="Campus_Life_Tag" style="width:88%">
+    </div>
+    <div style="width: 33%; float: right">
+      <div class = "center">
+        <h2>Clubs Organizations</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Clubs_Organizations.svg" alt="BarGraph_Clubs_Organizations" style="width:88%">
+    </div>
+    <div style="width: 33%; float: left">
+      <div class = "center">
+        <h2>Deaf Advocacy</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Deaf_Advocacy.svg" alt="Deaf_Advocacy_Tag" style="width:88%">
+    </div>
+    <div style="width: 33%; float: right">
+      <div class = "center">
+        <h2>Dining</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Dining.svg" alt="Dining_Tag" style="width:88%">
+    </div>
+    <div style="width: 33%; float: right">
+      <div class = "center">
+        <h2>Facilities</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Facilities.svg" alt="BarGraph_Facilities" style="width:88%">
+    </div>
+    <div style="width: 33%; float: left">
+      <div class = "center">
+        <h2>Governance</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Governance.svg" alt="Governance_Tag" style="width:88%">
+    </div>
+    <div style="width: 33%; float: right">
+      <div class = "center">
+        <h2>Housing</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Housing.svg" alt="Housing_Tag" style="width:88%">
+    </div>
+    <div style="width: 33%; float: right">
+      <div class = "center">
+        <h2>Other</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Other.svg" alt="Other_Tag" style="width:88%">
+    </div>
+    <div style="width: 25%; float: left">
+      <div class = "center">
+        <h2>Parking Transportation</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Parking_Transportation.svg" alt="Parking_Transportation_Tag" style="width:88%">
+    </div>
+    <div style="width: 25%; float: right">
+      <div class = "center">
+        <h2>Public Safety</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Public_Safety.svg" alt="Public_Safety_Tag" style="width:88%">
+    </div>
+    <div style="width: 25%; float: right">
+      <div class = "center">
+        <h2>Sustainability</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Sustainability.svg" alt="Sustainability_Tag" style="width:88%">
+    </div>
+    <div style="width: 25%; float: right">
+      <div class = "center">
+        <h2>Technology</h2>
+      </div>
+      <img src="public/graphsFull/BarGraph_Technology.svg" alt="Technology_Tag" style="width:88%">
     </div>
   </body>
 </html>
+<style>
+body {
+  background-color: rgb(248, 108, 36);
+  color: black
+  
+}
+.center {
+  text-align: center;
+}
+.centerBorder {
+  text-align: center;
+  border-radius: 50px;
+  border: 8px double rgb(53, 47, 47);
+  margin-right: 10%;
+  margin-left: 10%;
+}
+.centerBorderSmall {
+  text-align: center;
+  border-radius: 50px;
+  border: 8px double rgb(53, 47, 47);
+  margin-top: 74%;
+  margin-right: 40%;
+  margin-left: 40%;
+}
+img {
+  border-radius: 27px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
