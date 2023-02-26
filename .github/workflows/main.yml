@@ -2,7 +2,7 @@ name: Run Main
 
 on:
   schedule:
-    - cron: "55 4 * * *"
+    - cron: "10 5 * * *"
   workflow_dispatch:
 
 permissions:
