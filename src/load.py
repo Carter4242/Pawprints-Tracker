@@ -44,7 +44,7 @@ def scrapeAll () -> list:
 
     # Launch the connection to the server.
     # Perform the handshake.
-    ws = create_connection('wss://pawprints.rit.edu/ws/', headers=headers, ssl=False, , verify=False)
+    ws = create_connection('wss://pawprints.rit.edu/ws/', headers=headers, ssl=False, verify=False)
 
     # ws.send(json.dumps({"command": "get", "id": 7})) - Unused
     #ws.send(json.dumps({"command":"paginate","sort":"most recent","filter":"all","page":1}))  # - Just 1 page (~33)
