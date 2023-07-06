@@ -9,6 +9,7 @@ https://github.com/Carter4242
 
 
 from websocket import create_connection
+import ssl
 import format
 import json
 
