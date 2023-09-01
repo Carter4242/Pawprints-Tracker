@@ -169,7 +169,7 @@ def Graphs(petitions: list) -> None:
         plt.xticks(rotation = 90)
         plt.margins(0.005, tight=True)
         plt.tight_layout(pad=1.0)
-        //plt.savefig('docs/public/graphsFull/BarGraph_' + tagsList[i] + '.svg')
+        #plt.savefig('docs/public/graphsFull/BarGraph_' + tagsList[i] + '.svg')
         plt.close()
 
     print("\nGraphing Total Petitions\n")
@@ -273,5 +273,5 @@ def buildPetitionGraph(filename: str) -> None:
     plt.xticks(rotation = 90)
     plt.margins(0.005, tight=True)
     plt.tight_layout(pad=1.0)
-    //plt.savefig('docs/public/graphsSingle/' + str(dataAndID[1][:-4]) + '.svg')
+    #plt.savefig('docs/public/graphsSingle/' + str(dataAndID[1][:-4]) + '.svg')
     plt.close()
