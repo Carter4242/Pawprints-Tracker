@@ -30,8 +30,8 @@ def scrapeAll () -> list:
         'Accept-Language': 'en-US,en;q=0.9',
         'Cache-Control': 'no-cache',
         'Connection': 'Upgrade',
-        'Host': 'pawprints.rit.edu',
-        'Origin': 'https://pawprints.rit.edu',
+        'Host': 'pawprints2.rit.edu',
+        'Origin': 'https://pawprints2.rit.edu',
         'Pragma': 'no-cache',
         'Sec-WebSocket-Extensions': 'permessage-deflate; client_max_window_bits',
         'Sec-WebSocket-Key': 'https://github.com/Carter4242/Pawprints-Webscraper', # Modified
@@ -45,7 +45,7 @@ def scrapeAll () -> list:
 
     # Launch the connection to the server.
     # Perform the handshake.
-    ws = create_connection('wss://pawprints.rit.edu/ws/', headers=headers, sslopt={"cert_reqs": ssl.CERT_NONE})
+    ws = create_connection('wss://pawprints2.rit.edu/ws/', headers=headers, sslopt={"cert_reqs": ssl.CERT_NONE})
 
     # ws.send(json.dumps({"command": "get", "id": 7})) - Unused
     #ws.send(json.dumps({"command":"paginate","sort":"most recent","filter":"all","page":1}))  # - Just 1 page (~33)
